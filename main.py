@@ -4,5 +4,5 @@ from generate_html import generate_html
 
 convert_datas()
 calculate_xp()
-generate_html()
+generate_html(last_update='17/02/2025 | 21:15')
 

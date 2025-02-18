@@ -3,7 +3,7 @@ from IPython.display import HTML, display
 import base64
 import os
 
-def generate_html():
+def generate_html(last_update):
     
 
     # Ler o arquivo CSV
@@ -121,10 +121,11 @@ def generate_html():
         """
             # <td class="xpscore">{row['totalXp']} XP</td>
 
-    html += """
+    html += f"""
                     </table>
                 </div>
             </div>
+            <p>Ultima atualização: {last_update} </p>
         </div>
     """
 
