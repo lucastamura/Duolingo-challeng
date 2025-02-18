@@ -113,12 +113,13 @@ def generate_html():
         <tr>
             <td class="left">
                 <span>{row['Posição']}</span>
-                <img src="avatar/{row['username']}.png" alt="{row['username']}">
+                <img src="avatar/{row['userId']}.png" alt="{row['username']}">
                 <h5 class="username">{row['displayName']}</h5>
             </td>
-            <td class="xpscore">{row['totalXp']} XP</td>
+            <td class="xpscore">0 XP</td>
         </tr>
         """
+            # <td class="xpscore">{row['totalXp']} XP</td>
 
     html += """
                     </table>

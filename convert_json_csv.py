@@ -25,7 +25,7 @@ def convert_datas():
             # Ler o arquivo JSON com a codificação correta
             with open(os.path.join(directory, filename), 'r', encoding='utf-8') as file:
                 data = json.load(file)
-                users = data['followers']['users']
+                users = data['following']['users']
                 
                 # Adicionar a data a cada usuário e adicionar à lista users_data
                 for user in users:

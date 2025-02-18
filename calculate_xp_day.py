@@ -6,10 +6,10 @@ def calculate_xp():
     df = pd.read_csv('historical_datas/database/users_data.csv')
 
     # Ordenar os dados por username e date
-    df = df.sort_values(by=['username', 'date'])
+    df = df.sort_values(by=['userId', 'date'])
 
     # Calcular o totalXp inicial para cada username
-    df['initial_totalXp'] = df.groupby('username')['totalXp'].transform('first')
+    df['initial_totalXp'] = df.groupby('userId')['totalXp'].transform('first')
 
     # Calcular a diferença entre o totalXp atual e o inicial
     df['diff_totalXp'] = df['totalXp'] - df['initial_totalXp']
