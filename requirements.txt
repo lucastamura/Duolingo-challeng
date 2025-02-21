@@ -1,0 +1,10 @@
+csv
+datetime
+fastapi 
+pymongo 
+os
+dotenv
+sqlite3
+requests 
+numpy
+pandas
