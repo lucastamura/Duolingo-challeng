@@ -6,5 +6,4 @@ dotenv,
 sqlite3,
 requests,
 numpy,
-pandas,
-csv
+pandas
