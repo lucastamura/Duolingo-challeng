@@ -1,9 +1,5 @@
-datetime,
-fastapi,
-pymongo,
-os,
-dotenv,
-sqlite3,
-requests,
-numpy,
+fastapi
+pymongo
+requests
+numpy
 pandas
