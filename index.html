@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Jogadores</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+            color: #F1F7FB;
+        }
+
+        body {
+            background-color: #131F24;
+            display: flex;
+            justify-content: center;
+        }
+
+        img {
+            width: 50px;
+            border-radius: 120px;
+        }
+
+        tr {
+            height: 70px;
+            width: 500px;
+            justify-content: space-between;
+            display: flex;
+            align-items: center;
+            border-radius: 18px;
+            margin-bottom: 4px;
+            transition: 0.3s;
+        }
+
+        tr:hover {
+            background-color: #202F36;
+        }
+
+        .container {
+            width: 500px;
+        }
+
+        span {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+        }
+
+        .username {
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .xpscore {
+            font-size: 16px;
+            font-weight: 500;
+            margin-right: 8px;
+        }
+
+        h1,
+        h3 {
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="title">
+            <h1>Intensiva DITIE</h1>
+            <p>Pronto para a maratona de XP no Duolingo? Em 3 meses, é hora de virar um mestre dos idiomas, acumular
+                pontos como um viciado em lições e deixar seus amigos pra trás! Quem vai ser o rei ou a rainha do XP?
+                Bora aprender e competir! 🏆✨</p>
+            <div>
+                <h3>Hanking Geral</h3>
+                <table>
+                    <tbody id="tabela-jogadores">
+                        <!-- Os dados serão inseridos aqui -->
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function carregarJogadores() {
+            try {
+                let response = await fetch("http://127.0.0.1:8000/jogadores", {
+                    method: "GET"
+                });
+                let data = await response.json();
+                let tabela = document.getElementById("tabela-jogadores");
+
+                tabela.innerHTML = ""; // Limpa a tabela antes de adicionar novos dados
+
+                data.jogadores.forEach(jogador => {
+                    // let linha = document.createElement("tr");
+                    linha.innerHTML = `
+                        <tr>
+                            <td class="left">
+                                <span>1º</span>
+                                <img src="assets/avatar/${jogador.userId}.png" alt="Shimaroots">
+                                <h5 class="username">${jogador.displayName}</h5>
+                            </td>
+                            <td class="xpscore">${jogador.totalScore} XP</td>
+                        </tr>
+                    `;
+                    tabela.appendChild(linha);
+                });
+            } catch (error) {
+                console.error("Erro ao carregar jogadores:", error);
+            }
+        }
+
+        carregarJogadores();
+    </script>
+</body>
+
+</html>

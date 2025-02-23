@@ -47,4 +47,3 @@ def convert_datas():
         for user in users_data:
             writer.writerow(user)
 
-    print(f"Os dados foram salvos com sucesso em {output_csv}.")

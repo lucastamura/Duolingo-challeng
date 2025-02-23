@@ -19,7 +19,6 @@ def calculate_xp():
 
     df = df.drop_duplicates(subset=['userId'], keep='last')
     # Visualizar o DataFrame resultante
-    print(df)
 
     # Salvar o DataFrame em um novo arquivo CSV (opcional)
     df.to_csv('historical_datas/database/dados_com_diff.csv', index=False)

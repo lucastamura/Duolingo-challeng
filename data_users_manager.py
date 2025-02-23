@@ -11,7 +11,6 @@ def sing_up_user(row, db_jogadores):
     row_dict = row.to_dict()  # 🔹 Converte o Pandas Series para um dicionário
     player = db_jogadores.find_one({"userId": row_dict['userId']})  
     if player is not None:
-        print("Jogador já existe")
         return player
     else:
         result = db_jogadores.insert_one(row_dict)  # 🔹 Insere o dicionário no MongoDB
@@ -70,6 +69,4 @@ def check_evoluction_day(current_time, userId, totalXp, streak, db_evolucao):
         }
 
         db_evolucao.score_evolution.insert_one(data)
-        print('Novo registro de evolução criado')
-    else:
-        print('Registro de evolução já criado para o dia de hoje')
+    # else:

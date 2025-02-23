@@ -60,5 +60,3 @@ def collet_convert_datas():
     # Salvar os DataFrames em arquivos CSV
     df_users.to_csv("assets/database/users_datas.csv", index=False)
     df_courses.to_csv("assets/database/courses.csv", index=False)
-
-    print("Arquivos CSV atualizados com sucesso!")

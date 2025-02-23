@@ -17,7 +17,5 @@ def get_user_datas(userId):
     with open(f'assets/json/{userId}.json', 'w') as f:
         f.write(response.text)
     if response.status_code == 200:
-        print("Dados coletados com sucesso!")
         return(response.json())  # Exibir os dados em formato JSON
-    else:
-        print(f"Erro na requisição: {response.status_code}")
+    # else:

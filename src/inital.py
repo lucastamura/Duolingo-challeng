@@ -24,11 +24,9 @@ for index, row in users.iterrows():
     row_dict = row.to_dict()  # 🔹 Converte o Pandas Series para um dicionário
     player = db_jogadores.find_one({"username": row_dict['username']})  
     if player is not None:
-        print("Jogador já existe")
-        print(player)
+        teste=2
     else:
         result = db_jogadores.insert_one(row_dict)  # 🔹 Insere o dicionário no MongoDB
-        print(result)  # Mostra o ID do novo documento
 
 
 
@@ -42,5 +40,4 @@ for index, row in users.iterrows():
     
 # cursor.execute(f"""SELECT * FROM players""")
 # result = cursor.fetchall()
-# print(result)
     

@@ -2,24 +2,14 @@ from database_manager import connect_database, create_database
 from data_users_manager import get_users, sing_up_user, convert_datas, check_evoluction_day
 from duolingo_api import get_user_datas
 from score_calculator import score_calculator
-import os
-from dotenv import load_dotenv
-from pymongo import MongoClient
 
 
-def update_datas():
-    # Carregar variáveis de ambiente
-    load_dotenv()
-    MONGO_URI = os.getenv("MONGO_URI")
 
-    # Conectar ao MongoDB
-    client = MongoClient(MONGO_URI)
-    db = client["duolingo"]
-    db_jogadores = db["jogadores"]
-    db_evolucao = db["evolucao_diaria"]
 
-    conn, cursor = connect_database('assets/database/database.db')
-    create_database(conn, cursor)
+conn, cursor = connect_database('assets/database/database.db')
+create_database(conn, cursor)
+
+async def update_datas(db_jogadores, db_evolucao):
     users = get_users()
 
     for index, row in users.iterrows():
@@ -32,5 +22,4 @@ def update_datas():
         
     # cursor.execute(f"""SELECT * FROM players""")
     # result = cursor.fetchall()
-    # print(result)
     

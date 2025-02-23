@@ -6,7 +6,6 @@ def score_calculator(conn, cursor, userId, xpDayNew, streakDayNew):
     if check:
         pontos_xp, pontos_streak, pontos_total = calcular_primeiro_registro(cursor, userId, xpDayNew, streakDayNew, data[0][2], data[0][3])
     else:
-        print('Não é o primeiro registro')
         cursor.execute(f"""SELECT xpDay, streakerDia FROM score_evolution WHERE userId = {userId} ORDER BY id DESC LIMIT 2""")
         result = cursor.fetchall()
         xpDayOld = result[1][0]
@@ -28,12 +27,8 @@ def score_calculator(conn, cursor, userId, xpDayNew, streakDayNew):
         pontos_total = result[0][0]
         cursor.execute(f"""UPDATE players SET totalScore = {pontos_total} WHERE id = {userId}""")
         conn.commit()
-    else:
-        print('Pontuação já atualizada')
+    # else:
     
-    print('pontos_xp', pontos_xp)
-    print('pontos_streak', pontos_streak)
-    print('pontos_total', pontos_total)
         
 
 
@@ -59,8 +54,6 @@ def calcular_pontos(xpDayOld, XpDayNew, streakOld, streakNew):
         pontos_xp = int(10 * np.log10(diferenca_xp))  # Log na base 10
     else:
         pontos_xp = 0  # Se a diferença for <= 0, pontosXp = 0
-    print('streakOld', streakOld)
-    print('streakNew', streakNew)
     # Calcular pontosOfensiva
     diferenca_streak = streakNew - streakOld
     if diferenca_streak > 0:
@@ -77,8 +70,6 @@ def calcular_pontos(xpDayOld, XpDayNew, streakOld, streakNew):
 def calcular_primeiro_registro(cursor, userId, xpDayNew, streakDayNew, xpOld, streakOld):
     cursor.execute(f"""SELECT startXp, startStreak FROM players WHERE id = {userId}""")
     result = cursor.fetchall()
-    print(result)
     xpOld = result[0][0]
     streakOld = result[0][1]
-    print(type(xpOld))
     return calcular_pontos(xpOld, xpDayNew, streakOld, streakDayNew)

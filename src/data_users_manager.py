@@ -16,8 +16,7 @@ def sing_up_user(cursor, conn, userId, username, name, startXp, streak):
         VALUES ({userId}, '{username}', '{name}', {startXp}, {streak});
         """)
         conn.commit()
-    else:
-        print(f'Usuário {name} já cadastrado')
+    # else:
         
         
 import csv
@@ -63,5 +62,4 @@ def check_evoluction_day(cursor, conn, current_time, userId, totalXp, streak):
     if cursor.fetchone() is None:
         cursor.execute(f"""INSERT INTO score_evolution (userId, date, xpDay, streakerDia) VALUES ({userId}, '{current_time}', {totalXp}, {streak})""")
         conn.commit()
-    else:
-        print('Registro de evolução já criado para o dia de hoje')
+    # else:

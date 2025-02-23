@@ -19,4 +19,3 @@ with open("assets/database/duolingo_following.csv", "w", newline="", encoding="u
     for user in data["following"]["users"]:
         writer.writerow([user.get(field, "") for field in fields])
 
-print("Arquivo CSV gerado com sucesso: duolingo_following.csv")

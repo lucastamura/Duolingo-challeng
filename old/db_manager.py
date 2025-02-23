@@ -40,7 +40,6 @@ def create_database(db_file):
     # Fechar a conexão com o banco de dados
     conn.close()
 
-    print(f"Banco de dados '{db_file}' criado com sucesso com a tabela 'users'.")
     
 def insert_data(db_file, user_data):
     """
@@ -66,5 +65,3 @@ def insert_data(db_file, user_data):
 
     # Fechar a conexão com o banco de dados
     conn.close()
-
-    print("Dados inseridos com sucesso na tabela 'users'.")
