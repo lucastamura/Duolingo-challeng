@@ -1,39 +1,71 @@
 import numpy as np
 import pandas as pd
 
-def score_calculator(conn, cursor, userId, xpDayNew, streakDayNew):
-    check, data = first_evolution_day(conn, cursor, userId)
+def score_calculator(conn, cursor, userId, xpDayNew, streakDayNew, db_evolucao, db_jogadores):
+    check, data = first_evolution_day(db_evolucao, userId)
     if check:
-        pontos_xp, pontos_streak, pontos_total = calcular_primeiro_registro(cursor, userId, xpDayNew, streakDayNew, data[0][2], data[0][3])
-    else:
-        print('Não é o primeiro registro')
-        cursor.execute(f"""SELECT xpDay, streakerDia FROM score_evolution WHERE userId = {userId} ORDER BY id DESC LIMIT 2""")
-        result = cursor.fetchall()
-        xpDayOld = result[1][0]
-        streakOld = result[1][1]
-        pontos_xp, pontos_streak, pontos_total = calcular_pontos(xpDayOld, xpDayNew, streakOld, streakDayNew)
+        pontos_xp, pontos_streak, pontos_total = calcular_primeiro_registro(userId, xpDayNew, streakDayNew, data[0]["xpDay"], data[0]["streakerDia"], db_jogadores)
+        print('pontos_xp', pontos_xp)
+        print('pontos_streak', pontos_streak)
+        print('pontos_total', pontos_total)
+    # else:
+    #     print('Não é o primeiro registro')
+    #     cursor.execute(f"""SELECT xpDay, streakerDia FROM score_evolution WHERE userId = {userId} ORDER BY id DESC LIMIT 2""")
+    #     result = cursor.fetchall()
+    #     xpDayOld = result[1][0]
+    #     streakOld = result[1][1]
+    #     pontos_xp, pontos_streak, pontos_total = calcular_pontos(xpDayOld, xpDayNew, streakOld, streakDayNew)
         
-    cursor.execute(f"""SELECT totalScore, id FROM score_evolution WHERE userId = {userId} ORDER BY id DESC LIMIT 1""")
-    result = cursor.fetchall()
-    old_score = result[0][0]
-    id_register = result[0][1]
+    result = db_evolucao.score_evolution.find({"userId": userId}).sort("date", -1).limit(1)
+    result = list(result)
+    print(result)
+    if result:  # Se existir algum registro
+        old_score = result[0]["totalScore"]
+        id_register = result[0]["_id"]  # MongoDB usa _id como identificador único
+    else:
+        old_score = 0
+        id_register = None
+
+    print(f"old_score: {old_score}, id_register: {id_register}")
+
     
     if pontos_total != old_score:
-        # atualizar registros no banco
-        cursor.execute(f"""UPDATE score_evolution SET xpScore = {pontos_xp}, streakerScore = {pontos_streak}, totalScore = {pontos_total}, xpDay = {xpDayNew}, streakerDia = {streakDayNew} WHERE id = {id_register}""")
-        # Fazer uma select no banco trazendo a soma de todos os totalScore do usuário
-        conn.commit()
-        cursor.execute(f"""SELECT SUM(totalScore) FROM score_evolution WHERE userId = {userId}""")
-        result = cursor.fetchall()
-        pontos_total = result[0][0]
-        cursor.execute(f"""UPDATE players SET totalScore = {pontos_total} WHERE id = {userId}""")
-        conn.commit()
+        print('Pontuação diferente')
+
+        print('Atualiza o registro na coleção score_evolution pelo ID')
+        db_evolucao.score_evolution.update_one(
+            {"_id": id_register},
+            {"$set": {
+                "xpScore": int(pontos_xp),
+                "streakerScore": int(pontos_streak),
+                "totalScore": int(pontos_total),
+                "xpDay": int(xpDayNew),
+                "streakerDia": int(streakDayNew)
+            }}
+        )
+
+        # Calcula a soma de todos os 'totalScore' do usuário
+        result = db_evolucao.score_evolution.aggregate([
+            {"$match": {"userId": userId}},
+            {"$group": {"_id": None, "totalScoreSum": {"$sum": "$totalScore"}}}
+        ])
+
+        # Obtém o valor total somado
+        result = list(result)
+        pontos_total = result[0]["totalScoreSum"] if result else 0
+
+        # Atualiza o totalScore na coleção 'players'
+        db_jogadores.update_one(
+            {"userId": userId},
+            {"$set": {"totalScore": int(pontos_total)}}
+        )
+
     else:
         print('Pontuação já atualizada')
     
-    print('pontos_xp', pontos_xp)
-    print('pontos_streak', pontos_streak)
-    print('pontos_total', pontos_total)
+    # print('pontos_xp', pontos_xp)
+    # print('pontos_streak', pontos_streak)
+    # print('pontos_total', pontos_total)
         
 
 
@@ -41,18 +73,21 @@ def score_calculator(conn, cursor, userId, xpDayNew, streakDayNew):
         
     
     
-def first_evolution_day(conn, cursor, userId):
+def first_evolution_day(db_evolucao, userId):
     # Verificar se o usuário já possui somente 1 registro de evolução
-    cursor.execute(f"""SELECT * FROM score_evolution WHERE userId = {userId}""")
-    result = cursor.fetchall()
+    result = list(db_evolucao.score_evolution.find({"userId": int(userId)}))
     if len(result) == 1:
         return True, result
     else:
         return False, result
+
     
     
 def calcular_pontos(xpDayOld, XpDayNew, streakOld, streakNew):
-
+    print('xpDayOld', xpDayOld)
+    print('XpDayNew', XpDayNew)
+    print('streakOld', streakOld)
+    print('streakNew', streakNew)
     # Calcular pontosXp (usando log10)
     diferenca_xp = XpDayNew - xpDayOld
     if diferenca_xp > 0:
@@ -74,11 +109,14 @@ def calcular_pontos(xpDayOld, XpDayNew, streakOld, streakNew):
 
     return pontos_xp, pontos_streak, pontos_total
 
-def calcular_primeiro_registro(cursor, userId, xpDayNew, streakDayNew, xpOld, streakOld):
-    cursor.execute(f"""SELECT startXp, startStreak FROM players WHERE id = {userId}""")
-    result = cursor.fetchall()
-    print(result)
-    xpOld = result[0][0]
-    streakOld = result[0][1]
-    print(type(xpOld))
-    return calcular_pontos(xpOld, xpDayNew, streakOld, streakDayNew)
+def calcular_primeiro_registro(userId, xpDayNew, streakDayNew, xpOld, streakOld, db_jogadores):
+    result = db_jogadores.find_one({"userId": int(userId)}, {"xpStart": 1, "streakStart": 1, "_id": 0})
+    print('result', result)
+    if result:
+        xpOld = result.get("xpStart", None)
+        streakOld = result.get("streakStart", None)
+        print('xpOld', xpOld)
+        print('streakOld', streakOld)
+        return calcular_pontos(xpOld, xpDayNew, streakOld, streakDayNew)
+    
+    return None  # Retorna None se não encontrar o usuário

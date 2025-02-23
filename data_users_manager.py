@@ -7,17 +7,15 @@ def get_users():
         data = pd.DataFrame(data)
         return data
 
-def sing_up_user(cursor, conn, userId, username, name, startXp, streak):
-    cursor.execute(f""" SELECT * FROM players WHERE username = '{username}' """)
-    result = cursor.fetchall()
-    if result == []:
-        cursor.execute(f"""
-        INSERT INTO players (id, username, name, startXp, startStreak)
-        VALUES ({userId}, '{username}', '{name}', {startXp}, {streak});
-        """)
-        conn.commit()
+def sing_up_user(row, db_jogadores):
+    row_dict = row.to_dict()  # 🔹 Converte o Pandas Series para um dicionário
+    player = db_jogadores.find_one({"userId": row_dict['userId']})  
+    if player is not None:
+        print("Jogador já existe")
+        return player
     else:
-        print(f'Usuário {name} já cadastrado')
+        result = db_jogadores.insert_one(row_dict)  # 🔹 Insere o dicionário no MongoDB
+        return result  # Mostra o ID do novo documento
         
         
 import csv
@@ -32,18 +30,18 @@ def convert_datas(json_datas):
     data = json_datas
 
     # Data e hora atual
-    # current_time = datetime.now().strftime("%Y-%m-%d")
-    current_time = '2025-02-23'
+    current_time = datetime.now().strftime("%Y-%m-%d")
+    # current_time = '2025-02-23'
 
     # Adicionar os dados do usuário à lista
     user_data = {
         "id": data["id"],
         "name": data["name"],
         "username": data["username"],
-        "totalXp": 1523,
-        "streak": 3,
-        # "totalXp": data["totalXp"],
-        # "streak": data["streak"],
+        # "totalXp": 1800,
+        # "streak": 3,
+        "totalXp": data["totalXp"],
+        "streak": data["streak"],
         "creationDate": data["creationDate"],
         "hasPlus": data["hasPlus"],
         "fromLanguage": data["fromLanguage"],
@@ -58,10 +56,20 @@ def convert_datas(json_datas):
     df_users.to_csv("assets/database/users_datas.csv", index=False)
     return df_users
 
-def check_evoluction_day(cursor, conn, current_time, userId, totalXp, streak):
-    cursor.execute(f"""SELECT * FROM score_evolution WHERE date = '{current_time}' AND userId = {userId}""")
-    if cursor.fetchone() is None:
-        cursor.execute(f"""INSERT INTO score_evolution (userId, date, xpDay, streakerDia) VALUES ({userId}, '{current_time}', {totalXp}, {streak})""")
-        conn.commit()
+def check_evoluction_day(current_time, userId, totalXp, streak, db_evolucao):
+    result = db_evolucao.score_evolution.find_one({"date": current_time, "userId": int(userId)})
+    if result is None:
+        data = {
+            "userId": int(userId),  # Certifique-se de converter para int, se necessário
+            "date": current_time,  # Certifique-se de estar no formato correto (ex: "YYYY-MM-DD")
+            "xpDay": int(totalXp),
+            "streakerDia": int(streak),
+            "xpScore": 0,
+            "streakerScore": 0,
+            "totalScore": 0
+        }
+
+        db_evolucao.score_evolution.insert_one(data)
+        print('Novo registro de evolução criado')
     else:
         print('Registro de evolução já criado para o dia de hoje')

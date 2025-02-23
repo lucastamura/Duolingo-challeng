@@ -1,2 +1,2 @@
-displayName,totalXp,userId,username,streak
-Lucas Tamura,10,280512491,lucas.tamura,1
+displayName,userId,username,xpStart,streakStart,totalScore
+Lucas Tamura,280512491,lucas.tamura,15440,170,0
