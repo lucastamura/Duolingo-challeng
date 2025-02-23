@@ -1,7 +1,7 @@
 {
     "following": {
         "cursor": null,
-        "totalUsers": 15,
+        "totalUsers": 18,
         "users": [
             {
                 "canFollow": true,
@@ -41,7 +41,7 @@
                 "isVerified": false,
                 "picture": "https://simg-ssl.duolingo.com/ssr-avatars/109998083/SSR-PrqkkOQlPn",
                 "subscriptionItemType": "premium_subscription",
-                "totalXp": 87838,
+                "totalXp": 87873,
                 "userId": 109998083,
                 "username": "PauloSFJunior"
             },
@@ -91,13 +91,13 @@
                 "canFollow": true,
                 "displayName": "Lucas Tamura",
                 "hasSubscription": true,
-                "isCurrentlyActive": false,
+                "isCurrentlyActive": true,
                 "isFollowedBy": false,
                 "isFollowing": true,
                 "isVerified": false,
                 "picture": "https://simg-ssl.duolingo.com/ssr-avatars/280512491/SSR-HSPyN1b2K2",
                 "subscriptionItemType": "gold_subscription",
-                "totalXp": 16539,
+                "totalXp": 16697,
                 "userId": 280512491,
                 "username": "lucas.tamura"
             },
@@ -161,15 +161,29 @@
                 "canFollow": true,
                 "displayName": "Lucas Gimenez",
                 "hasSubscription": true,
-                "isCurrentlyActive": true,
+                "isCurrentlyActive": false,
                 "isFollowedBy": false,
                 "isFollowing": true,
                 "isVerified": false,
                 "picture": "https://simg-ssl.duolingo.com/ssr-avatars/1162115602/SSR-sd4XZEQfWU",
                 "subscriptionItemType": "gold_subscription",
-                "totalXp": 3444,
+                "totalXp": 3540,
                 "userId": 1162115602,
                 "username": "Lucas-Gimenez"
+            },
+            {
+                "canFollow": true,
+                "displayName": "Caio Iwamoto",
+                "hasSubscription": true,
+                "isCurrentlyActive": false,
+                "isFollowedBy": false,
+                "isFollowing": true,
+                "isVerified": false,
+                "picture": "https://simg-ssl.duolingo.com/ssr-avatars/451241831/SSR-YLYi3FtBgy",
+                "subscriptionItemType": "immersive_subscription",
+                "totalXp": 1657,
+                "userId": 451241831,
+                "username": "CaioIwamot1"
             },
             {
                 "canFollow": true,
@@ -212,6 +226,34 @@
                 "totalXp": 1294,
                 "userId": 1694792051,
                 "username": "Brunodourado01"
+            },
+            {
+                "canFollow": true,
+                "displayName": "Marc\u00e9lia Roso Dezan",
+                "hasSubscription": false,
+                "isCurrentlyActive": false,
+                "isFollowedBy": false,
+                "isFollowing": true,
+                "isVerified": false,
+                "picture": "https://simg-ssl.duolingo.com/avatar/default_2",
+                "subscriptionItemType": null,
+                "totalXp": 533,
+                "userId": 1048479891,
+                "username": "MarceliaDezan"
+            },
+            {
+                "canFollow": true,
+                "displayName": "Gislaine Magalhaes Dos Santos",
+                "hasSubscription": false,
+                "isCurrentlyActive": false,
+                "isFollowedBy": false,
+                "isFollowing": true,
+                "isVerified": false,
+                "picture": "https://simg-ssl.duolingo.com/avatar/default_2",
+                "subscriptionItemType": null,
+                "totalXp": 109,
+                "userId": 1639828879,
+                "username": "GislaineMa750930"
             }
         ]
     }
