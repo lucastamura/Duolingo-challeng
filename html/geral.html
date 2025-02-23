@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking Geral</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/geral.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="flex js_between full_w">
+            <a class="icon_home_challenger" href="../index.html">
+                <img class="duo_img" src="../assets/images/header_ghallenger.svg" alt="">
+            </a>
+            <div class="button_header flex al_center js_around">
+                <a href="#" class="al_center js_center">
+                    <img class="icon_button" src="../assets/images/icon_diario.svg" alt="">
+                    <p class="text_button">DIÁRIO</p>
+                </a>
+                <a href="../html/regras.html" class="al_center js_center">
+                    <img class="icon_button" src="../assets/images/icon_regras.svg" alt="">
+                    <p class="text_button">REGRAS</p>
+                </a>
+            </div>
+        </header>
+        <div class="regras flex_col">
+            <div class="topico flex_col">
+                <div class="subtitle flex al_center">
+                    <img class="icon_title" src="../assets/images/icon_geral.svg" alt="">
+                    <h2>GERAL</h2>
+                </div>
+                <p>
+                    🏆 Abaixo está a pontuação geral acumulada dos participantes ao longo do Desafio Duolingo! Acompanhe
+                    o ranking e veja quem está mais perto do pódio! 🚀🔥
+                </p>
+                <h3 id="loading">Carregando jogadores...</h3>
+
+            </div>
+            <div class="topico flex_col">
+                <table>
+                    <tbody id="tabela-jogadores">
+                        <!-- Os dados serão inseridos aqui -->
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../js/geral.js"></script>
+
+</html>

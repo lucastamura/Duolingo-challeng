@@ -1,20 +1,19 @@
 .duo_img{
-    width: 40%;
-    padding: 8px;
+    width: 100%;
 }
 
 .button_header{
     padding: 8px;
-    width: 60%;
+    width: 70%;
 }
 
 .icon_button{
-    width: 32px;
+    width: 24px;
     margin-right: 5px;
 }
 
 .text_button{
-    font-size: 32px;
+    font-size: 20px;
     font-weight: 500;
 }
 header{
@@ -26,14 +25,24 @@ header{
 .topico{
     padding: 0 24px;
     gap: 16px;
-    margin-top: 46px;
+    margin-top: 24px;
     width: 100%;
 }
 
 h2{
-    font-size: 50px;
+    font-size: 32px;
 }
 
 .icon_title{
     margin-right: 10px;
+}
+
+.topico p{
+    font-size: 16px;
+}
+
+.icon_home_challenger{
+    width: 30%;
+    padding-right: 8px;
+
 }

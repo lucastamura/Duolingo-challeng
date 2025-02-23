@@ -17,8 +17,11 @@ body{
 }
 .container{
     background-color: #131F24;
-    max-width: 800px;
+    max-width: 1200px;
+    padding: 16px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    width: 100%;
 }
+
