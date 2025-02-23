@@ -1,0 +1,39 @@
+.duo_img{
+    width: 40%;
+    padding: 8px;
+}
+
+.button_header{
+    padding: 8px;
+    width: 60%;
+}
+
+.icon_button{
+    width: 32px;
+    margin-right: 5px;
+}
+
+.text_button{
+    font-size: 32px;
+    font-weight: 500;
+}
+header{
+    margin: 24px 0;
+}
+
+
+
+.topico{
+    padding: 0 24px;
+    gap: 16px;
+    margin-top: 46px;
+    width: 100%;
+}
+
+h2{
+    font-size: 50px;
+}
+
+.icon_title{
+    margin-right: 10px;
+}

@@ -1,0 +1,28 @@
+.flex_col{
+    display: flex;
+    flex-direction: column;
+}
+
+.al_center{
+    display: flex;
+    align-items: center;
+}
+
+.js_center{
+    display: flex;
+    justify-content: center;
+}
+
+.js_between{
+    display: flex;
+    justify-content: space-between;
+}
+
+.js_around{
+    display: flex;
+    justify-content: space-around;
+}
+
+.full_w{
+    width: 100%;
+}

@@ -1,0 +1,40 @@
+
+header{
+    margin: 50px;
+    width: 100%;
+}
+
+.img_header{
+    width: 70%;
+}
+.text_button{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+a{
+    height: 66px;
+    width: 100%;
+    gap: 10px;
+    background-color: #202F36;
+    border-radius: 14px;
+    margin-top: 26px;
+    transition: 0.3s;
+}
+
+a:hover{
+    background-color: #1A252B;
+}
+
+.options{
+    width: 100%;
+}
+
+.duo_img{
+    width: 100%;
+}
+
+.icon_button{
+    height: 70%;
+    width: 50px;
+}
