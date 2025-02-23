@@ -27,7 +27,7 @@ db_evolucao = db["evolucao_diaria.score_evolution"]
 conn, cursor = connect_database('assets/database/database.db')
 create_database(conn, cursor)
 
-def update_datas(db_jogadores, db_evolucao):
+async def update_datas(db_jogadores, db_evolucao):
     users = get_users()
 
     for index, row in users.iterrows():
@@ -41,7 +41,7 @@ def update_datas(db_jogadores, db_evolucao):
     # cursor.execute(f"""SELECT * FROM players""")
     # result = cursor.fetchall()
 
-while True:
-    # esperar 5 minutos
-    time.sleep(120)
-    update_datas(db_jogadores, db_evolucao)  # Espera a atualização terminar antes de continuar
+# while True:
+#     # esperar 5 minutos
+#     time.sleep(120)
+#     update_datas(db_jogadores, db_evolucao)  # Espera a atualização terminar antes de continuar
