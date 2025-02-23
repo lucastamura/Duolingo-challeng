@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-def score_calculator(conn, cursor, userId, xpDayNew, streakDayNew, db_evolucao, db_jogadores):
+def score_calculator( userId, xpDayNew, streakDayNew, db_evolucao, db_jogadores):
     check, data = first_evolution_day(db_evolucao, userId)
     if check:
         pontos_xp, pontos_streak, pontos_total = calcular_primeiro_registro(userId, xpDayNew, streakDayNew, data[0]["xpDay"], data[0]["streakerDia"], db_jogadores)
