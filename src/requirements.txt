@@ -1,7 +1,0 @@
-fastapi
-pymongo
-requests
-numpy
-pandas
-uvicorn
-python-dotenv
