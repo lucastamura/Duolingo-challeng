@@ -58,7 +58,16 @@ app.add_middleware(
 
 @app.get("/jogadores")
 async def get_jogadores():
-    await update_datas(db_jogadores, db_evolucao)  # Espera a atualização terminar antes de continuar
-    jogadores = db_jogadores.find({}, {"_id": 0}).to_list(None)  
+    # await update_datas(db_jogadores, db_evolucao)  # Espera a atualização terminar antes de continuar
+    jogadores = db_jogadores.find({}, {"_id": 0}).to_list(None) 
+    # Ordena os jogadores pelo totalScore do maior para o menor
+    jogadores.sort(key=lambda x: x["totalScore"], reverse=True)
+
+    # Adiciona o campo de posição
+    medals = ['🥇', '🥈', '🥉']
+    for i, jogador in enumerate(jogadores, start=1):
+        jogador["posicao"] = medals[i-1] if i <= 3 else f"{i}º"
+
+    # Exibe o JSON atualizado
     return {"jogadores": jogadores}
 
