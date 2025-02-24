@@ -26,7 +26,7 @@ async function carregarJogadores() {
                     </div>
                     <div class="options_card flex al_center js_between full_w">
                         <div class="text flex al_center">
-                            <img class='avatar_img' src="../assets/avatar/${evolucao.userId}.png" alt="Shimaroots">
+                            <img class='avatar_img' src="../assets/avatar/${evolucao.userId}.png" alt="D">
                             <div class="name_points">
                                 <p>
                                     XP Diário

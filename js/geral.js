@@ -18,7 +18,7 @@ async function carregarJogadores() {
                 <tr>
                     <td class="left">
                         <span>${jogador.posicao}</span>
-                        <img class='avatar_img' src="../assets/avatar/${jogador.userId}.png" alt="Shimaroots">
+                        <img class='avatar_img' src="../assets/avatar/${jogador.userId}.png" alt="D">
                         <h5 class="username">${jogador.displayName}</h5>
                     </td>
                     <td class="xpscore">${jogador.totalScore} DP</td>
