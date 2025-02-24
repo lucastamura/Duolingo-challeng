@@ -38,10 +38,10 @@ async def update_datas(db_jogadores, db_evolucao):
             db_evolucao, db_jogadores
         )
 
-    # # Usa ThreadPoolExecutor para rodar em paralelo
-    # with concurrent.futures.ThreadPoolExecutor() as executor:
-    #     executor.map(process_user, [row for _, row in users.iterrows()])
+    # Usa ThreadPoolExecutor para rodar em paralelo
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        executor.map(process_user, [row for _, row in users.iterrows()])
     
     
-    for _, row in users.iterrows():
-        process_user(row)
+    # for _, row in users.iterrows():
+    #     process_user(row)
