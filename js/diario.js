@@ -1,7 +1,7 @@
 let carregando = false; // Variável para evitar múltiplas requisições
 async function carregarJogadores() {
     try {
-        let response = await fetch("http://127.0.0.1:8000/evolucao", {
+        let response = await fetch("https://duolingo-challeng.onrender.com/evolucao", {
         // let response = await fetch("http://127.0.0.1:8000/jogadores", {
             method: "GET"
         });
