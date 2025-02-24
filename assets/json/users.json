@@ -49,7 +49,7 @@
                 "canFollow": true,
                 "displayName": "Fernando Motta",
                 "hasSubscription": true,
-                "isCurrentlyActive": true,
+                "isCurrentlyActive": false,
                 "isFollowedBy": false,
                 "isFollowing": true,
                 "isVerified": false,
@@ -97,7 +97,7 @@
                 "isVerified": false,
                 "picture": "https://simg-ssl.duolingo.com/ssr-avatars/280512491/SSR-HSPyN1b2K2",
                 "subscriptionItemType": "gold_subscription",
-                "totalXp": 17054,
+                "totalXp": 16007,
                 "userId": 280512491,
                 "username": "lucas.tamura"
             },

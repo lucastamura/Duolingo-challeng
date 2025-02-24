@@ -11,6 +11,7 @@ import asyncio
 
 
 
+
 # Carregar variáveis de ambiente
 load_dotenv()
 MONGO_URI = os.getenv("MONGO_URI")
