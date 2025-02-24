@@ -19,7 +19,7 @@ MONGO_URI = os.getenv("MONGO_URI")
 client = MongoClient(MONGO_URI)
 db = client["duolingo"]
 db_jogadores = db["jogadores"]
-db_evolucao = db["evolucao_diaria.score_evolution"]
+db_evolucao = db["evolucao_diaria"]
 
 # Criar a API
 app = FastAPI()
@@ -36,11 +36,20 @@ app.add_middleware(
 #     update_datas()
 #     jogadores = list(db_jogadores.find({}, {"_id": 0}))  # Buscar todos os jogadores, excluindo o ID MongoDB
 #     return {"jogadores": jogadores}
+from datetime import datetime
 
-# @app.get("/evolucao")
-# def get_evolucao():
-#     jogadores = list(db_evolucao.find({}, {"_id": 0}))  # Buscar todos os jogadores, excluindo o ID MongoDB
-#     return {"jogadoresss": jogadores}
+@app.get("/evolucao")
+def get_evolucao():
+    current_time = datetime.now().strftime("%Y-%m-%d")
+
+    jogadores = list(db_evolucao.find({"date": current_time}, {"_id": 0}))  # Buscar todos os jogadores, excluindo o ID MongoDB
+    jogadores.sort(key=lambda x: x["totalScore"], reverse=True)
+
+    # Adiciona o campo de posição
+    medals = ['🥇', '🥈', '🥉']
+    for i, jogador in enumerate(jogadores, start=1):
+        jogador["posicao"] = medals[i-1] if i <= 3 else f"{i}º"
+    return {"evolucao": jogadores}
 
 # # Rota para atualizar os pontos (exemplo de lógica de atualização)
 # @app.post("/atualizar_pontos")

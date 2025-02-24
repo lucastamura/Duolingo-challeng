@@ -1,7 +1,7 @@
 {
     "following": {
         "cursor": null,
-        "totalUsers": 19,
+        "totalUsers": 20,
         "users": [
             {
                 "canFollow": true,
@@ -13,7 +13,7 @@
                 "isVerified": false,
                 "picture": "https://simg-ssl.duolingo.com/ssr-avatars/34871828/SSR-ucnAdLfTyy",
                 "subscriptionItemType": "gold_subscription",
-                "totalXp": 225330,
+                "totalXp": 225374,
                 "userId": 34871828,
                 "username": "AdemardeCa1"
             },
@@ -21,13 +21,13 @@
                 "canFollow": true,
                 "displayName": "Tamara Oliveira",
                 "hasSubscription": true,
-                "isCurrentlyActive": true,
+                "isCurrentlyActive": false,
                 "isFollowedBy": false,
                 "isFollowing": true,
                 "isVerified": false,
                 "picture": "https://simg-ssl.duolingo.com/ssr-avatars/894236585/SSR-az8SkdFtFX",
                 "subscriptionItemType": "gold_subscription",
-                "totalXp": 93578,
+                "totalXp": 93747,
                 "userId": 894236585,
                 "username": "tamaravoliveira"
             },
@@ -49,13 +49,13 @@
                 "canFollow": true,
                 "displayName": "Fernando Motta",
                 "hasSubscription": true,
-                "isCurrentlyActive": false,
+                "isCurrentlyActive": true,
                 "isFollowedBy": false,
                 "isFollowing": true,
                 "isVerified": false,
                 "picture": "https://simg-ssl.duolingo.com/ssr-avatars/5790072/SSR-TB8UcECDZB",
                 "subscriptionItemType": "gold_subscription",
-                "totalXp": 62829,
+                "totalXp": 62859,
                 "userId": 5790072,
                 "username": "mottafernando"
             },
@@ -89,7 +89,7 @@
             },
             {
                 "canFollow": true,
-                "displayName": "Lucas Tamura",
+                "displayName": "Tamura",
                 "hasSubscription": true,
                 "isCurrentlyActive": false,
                 "isFollowedBy": false,
@@ -97,7 +97,7 @@
                 "isVerified": false,
                 "picture": "https://simg-ssl.duolingo.com/ssr-avatars/280512491/SSR-HSPyN1b2K2",
                 "subscriptionItemType": "gold_subscription",
-                "totalXp": 16964,
+                "totalXp": 17054,
                 "userId": 280512491,
                 "username": "lucas.tamura"
             },
@@ -145,6 +145,20 @@
             },
             {
                 "canFollow": true,
+                "displayName": "Erica",
+                "hasSubscription": true,
+                "isCurrentlyActive": false,
+                "isFollowedBy": false,
+                "isFollowing": true,
+                "isVerified": false,
+                "picture": "https://simg-ssl.duolingo.com/ssr-avatars/1420553747/SSR-T-Yp3hPHw0",
+                "subscriptionItemType": "gold_subscription",
+                "totalXp": 6551,
+                "userId": 1420553747,
+                "username": "ericalsb"
+            },
+            {
+                "canFollow": true,
                 "displayName": "Kenji Umeki",
                 "hasSubscription": true,
                 "isCurrentlyActive": false,
@@ -181,7 +195,7 @@
                 "isVerified": false,
                 "picture": "https://simg-ssl.duolingo.com/ssr-avatars/451241831/SSR-vnH4z09oe9",
                 "subscriptionItemType": "immersive_subscription",
-                "totalXp": 1657,
+                "totalXp": 1848,
                 "userId": 451241831,
                 "username": "CaioIwamot1"
             },

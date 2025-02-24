@@ -55,18 +55,20 @@ def convert_datas(json_datas):
     df_users.to_csv("assets/database/users_datas.csv", index=False)
     return df_users
 
-def check_evoluction_day(current_time, userId, totalXp, streak, db_evolucao):
-    result = db_evolucao.score_evolution.find_one({"date": current_time, "userId": int(userId)})
+def check_evoluction_day(current_time, userId, totalXp, streak, db_evolucao, username):
+    result = db_evolucao.find_one({"date": current_time, "userId": int(userId)})
     if result is None:
         data = {
             "userId": int(userId),  # Certifique-se de converter para int, se necessário
+            "username": username,
             "date": current_time,  # Certifique-se de estar no formato correto (ex: "YYYY-MM-DD")
             "xpDay": int(totalXp),
             "streakerDia": int(streak),
+            "acumuladoXp":0,
             "xpScore": 0,
             "streakerScore": 0,
             "totalScore": 0
         }
 
-        db_evolucao.score_evolution.insert_one(data)
+        db_evolucao.insert_one(data)
     # else:

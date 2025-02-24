@@ -6,7 +6,7 @@ def score_calculator( userId, xpDayNew, streakDayNew, db_evolucao, db_jogadores)
     if check:
         pontos_xp, pontos_streak, pontos_total = calcular_primeiro_registro(userId, xpDayNew, streakDayNew, data[0]["xpDay"], data[0]["streakerDia"], db_jogadores)
     else:
-        results = list(db_evolucao.score_evolution.find({"userId": userId}).sort("_id", -1).limit(2))
+        results = list(db_evolucao.find({"userId": userId}).sort("_id", -1).limit(2))
 
         # Verifica se há pelo menos dois registros
         if len(results) < 2:
@@ -16,7 +16,7 @@ def score_calculator( userId, xpDayNew, streakDayNew, db_evolucao, db_jogadores)
         streak_old = results[1]["streakerDia"]
         pontos_xp, pontos_streak, pontos_total = calcular_pontos(xp_day_old, xpDayNew, streak_old, streakDayNew)
         
-    result = db_evolucao.score_evolution.find({"userId": userId}).sort("date", -1).limit(1)
+    result = db_evolucao.find({"userId": userId}).sort("date", -1).limit(1)
     result = list(result)
     if result:  # Se existir algum registro
         old_score = result[0]["totalScore"]
@@ -25,22 +25,23 @@ def score_calculator( userId, xpDayNew, streakDayNew, db_evolucao, db_jogadores)
         old_score = 0
         id_register = None
 
-
+    acumulado = xpDayNew - data[0]["xpDay"]
     
     if pontos_total != old_score:
-        db_evolucao.score_evolution.update_one(
+        db_evolucao.update_one(
             {"_id": id_register},
             {"$set": {
                 "xpScore": int(pontos_xp),
                 "streakerScore": int(pontos_streak),
                 "totalScore": int(pontos_total),
                 "xpDay": int(xpDayNew),
-                "streakerDia": int(streakDayNew)
+                "streakerDia": int(streakDayNew),
+                "acumuladoXp":int(acumulado)
             }}
         )
 
         # Calcula a soma de todos os 'totalScore' do usuário
-        result = db_evolucao.score_evolution.aggregate([
+        result = db_evolucao.aggregate([
             {"$match": {"userId": userId}},
             {"$group": {"_id": None, "totalScoreSum": {"$sum": "$totalScore"}}}
         ])
@@ -65,7 +66,7 @@ def score_calculator( userId, xpDayNew, streakDayNew, db_evolucao, db_jogadores)
     
 def first_evolution_day(db_evolucao, userId):
     # Verificar se o usuário já possui somente 1 registro de evolução
-    result = list(db_evolucao.score_evolution.find({"userId": int(userId)}))
+    result = list(db_evolucao.find({"userId": int(userId)}))
     if len(result) == 1:
         return True, result
     else:

@@ -24,13 +24,13 @@ header{
 
 .topico{
     /* padding: 0 24px; */
-    gap: 16px;
-    margin-top: 24px;
+    gap: 5px;
+    margin-bottom: 48px;
     width: 100%;
 }
 
 h2{
-    font-size: 32px;
+    font-size: 24px;
 }
 
 .icon_title{

@@ -1,20 +1,21 @@
-displayName,userId,username,totalXp
-Ademar,34871828,AdemardeCa1,225330
-Tamara Oliveira,894236585,tamaravoliveira,93578
-Paulo Freitas,109998083,PauloSFJunior,87996
-Fernando Motta,5790072,mottafernando,62829
-Christian Silva,290718331,ChristianS359585,36872
-Vivian,231825157,VivianMascarin,31047
-Lucas Tamura,280512491,lucas.tamura,16964
-Marcio,235788111,Marcio78837,13599
-Shima,464273220,Shimaroots,10144
-Kiq,857451825,Kiq4094,7766
-Kenji Umeki,709312511,kenjiumeki,4179
-Lucas Gimenez,1162115602,Lucas-Gimenez,3540
-Caio Iwamoto,451241831,CaioIwamot1,1657
-Erick Cirico,1679509058,ErickCiric,1530
-Gerson,957254908,Gerson917919,1466
-Bruno Dourado,1694792051,Brunodourado01,1379
-Monique,471172975,Monique27792,1181
-Marcélia Roso Dezan,1048479891,MarceliaDezan,533
-Gislaine Magalhaes Dos Santos,1639828879,GislaineMa750930,109
+displayName,userId,username,totalXp,streakStart,totalScore
+Fernando Motta,5790072,mottafernando,61596,18,0
+Ademar,34871828,AdemardeCa1,223174,1804,0
+Paulo Freitas,109998083,PauloSFJunior,87866,1067,0
+Vivian,231825157,VivianMascarin,31070,521,0
+Marcio,235788111,Marcio78837,12271,57,0
+Tamura,280512491,lucas.tamura,15905,171,0
+Christian Silva,290718331,ChristianS359585,36456,282,0
+Caio Iwamoto,451241831,CaioIwamot1,1848,7,0
+Shima,464273220,Shimaroots,10144,13,0
+Monique,471172975,Monique27792,1181,0,0
+Kenji Umeki,709312511,kenjiumeki,3999,19,0
+Kiq,857451825,Kiq4094,7691,25,0
+Tamara Oliveira,894236585,tamaravoliveira,92607,850,0
+Gerson,957254908,Gerson917919,1466,0,0
+Marcélia Roso Dezan,1048479891,MarceliaDezan,533,0,0
+Lucas Gimenez,1162115602,Lucas-Gimenez,3358,16,0
+Erica,1420553747,ericalsb,6427,22,0
+Gislaine Magalhaes Dos Santos,1639828879,GislaineMa750930,109,1,0
+Erick Cirico,1679509058,ErickCiric,1530,35,0
+Bruno Dourado,1694792051,Brunodourado01,1379,18,0
