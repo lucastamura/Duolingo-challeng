@@ -1,7 +1,7 @@
 {
     "following": {
         "cursor": null,
-        "totalUsers": 20,
+        "totalUsers": 22,
         "users": [
             {
                 "canFollow": true,
@@ -27,7 +27,7 @@
                 "isVerified": false,
                 "picture": "https://simg-ssl.duolingo.com/ssr-avatars/894236585/SSR-az8SkdFtFX",
                 "subscriptionItemType": "gold_subscription",
-                "totalXp": 93747,
+                "totalXp": 94217,
                 "userId": 894236585,
                 "username": "tamaravoliveira"
             },
@@ -35,13 +35,13 @@
                 "canFollow": true,
                 "displayName": "Paulo Freitas",
                 "hasSubscription": true,
-                "isCurrentlyActive": false,
+                "isCurrentlyActive": true,
                 "isFollowedBy": false,
                 "isFollowing": true,
                 "isVerified": false,
                 "picture": "https://simg-ssl.duolingo.com/ssr-avatars/109998083/SSR-PrqkkOQlPn",
                 "subscriptionItemType": "premium_subscription",
-                "totalXp": 87996,
+                "totalXp": 88099,
                 "userId": 109998083,
                 "username": "PauloSFJunior"
             },
@@ -55,7 +55,7 @@
                 "isVerified": false,
                 "picture": "https://simg-ssl.duolingo.com/ssr-avatars/5790072/SSR-TB8UcECDZB",
                 "subscriptionItemType": "gold_subscription",
-                "totalXp": 62859,
+                "totalXp": 63204,
                 "userId": 5790072,
                 "username": "mottafernando"
             },
@@ -97,7 +97,7 @@
                 "isVerified": false,
                 "picture": "https://simg-ssl.duolingo.com/ssr-avatars/280512491/SSR-HSPyN1b2K2",
                 "subscriptionItemType": "gold_subscription",
-                "totalXp": 16007,
+                "totalXp": 18693,
                 "userId": 280512491,
                 "username": "lucas.tamura"
             },
@@ -114,6 +114,20 @@
                 "totalXp": 13599,
                 "userId": 235788111,
                 "username": "Marcio78837"
+            },
+            {
+                "canFollow": true,
+                "displayName": "Danielli",
+                "hasSubscription": true,
+                "isCurrentlyActive": false,
+                "isFollowedBy": false,
+                "isFollowing": true,
+                "isVerified": false,
+                "picture": "https://simg-ssl.duolingo.com/ssr-avatars/468602740/SSR-7fNdr0HE7w",
+                "subscriptionItemType": "premium_subscription",
+                "totalXp": 11719,
+                "userId": 468602740,
+                "username": "DanisB21"
             },
             {
                 "canFollow": true,
@@ -181,7 +195,7 @@
                 "isVerified": false,
                 "picture": "https://simg-ssl.duolingo.com/ssr-avatars/1162115602/SSR-sd4XZEQfWU",
                 "subscriptionItemType": "gold_subscription",
-                "totalXp": 3540,
+                "totalXp": 3416,
                 "userId": 1162115602,
                 "username": "Lucas-Gimenez"
             },
@@ -195,9 +209,23 @@
                 "isVerified": false,
                 "picture": "https://simg-ssl.duolingo.com/ssr-avatars/451241831/SSR-vnH4z09oe9",
                 "subscriptionItemType": "immersive_subscription",
-                "totalXp": 1848,
+                "totalXp": 1921,
                 "userId": 451241831,
                 "username": "CaioIwamot1"
+            },
+            {
+                "canFollow": true,
+                "displayName": "Lucas Rocha",
+                "hasSubscription": false,
+                "isCurrentlyActive": false,
+                "isFollowedBy": false,
+                "isFollowing": true,
+                "isVerified": false,
+                "picture": "https://simg-ssl.duolingo.com/ssr-avatars/928504431/SSR-t-SfVB1jH1",
+                "subscriptionItemType": null,
+                "totalXp": 1867,
+                "userId": 928504431,
+                "username": "lh_rocha"
             },
             {
                 "canFollow": true,
@@ -237,7 +265,7 @@
                 "isVerified": false,
                 "picture": "https://simg-ssl.duolingo.com/ssr-avatars/1694792051/SSR-ijZ7p9XmMS",
                 "subscriptionItemType": "gold_subscription",
-                "totalXp": 1379,
+                "totalXp": 1409,
                 "userId": 1694792051,
                 "username": "Brunodourado01"
             },
