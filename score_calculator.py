@@ -29,7 +29,8 @@ def score_calculator( userId, xpDayNew, streakDayNew, db_evolucao, db_jogadores)
 
     acumulado = xpDayNew - xp_day_old
     print('acumulado ',acumulado, xpDayNew, xp_day_old)
-    if pontos_total != old_score:
+    # if pontos_total != old_score:
+    if pontos_total:
         db_evolucao.update_one(
             {"_id": id_register},
             {"$set": {
