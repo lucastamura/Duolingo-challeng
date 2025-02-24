@@ -16,7 +16,6 @@ async def update_datas(db_jogadores, db_evolucao):
 
     def process_user(row):
         """ Função para processar um único usuário """
-        print(f'Rodando para {row["userId"]}')
         
         player = sing_up_user(row, db_jogadores)
         json_datas = get_user_datas(row['userId'])  # Coleta os dados da API simultaneamente
@@ -31,7 +30,7 @@ async def update_datas(db_jogadores, db_evolucao):
             df_user['name'][0],
             
         )
-
+        print(df_user['name'][0])
         score_calculator(
             row['userId'], 
             df_user['totalXp'][0], 
@@ -39,6 +38,10 @@ async def update_datas(db_jogadores, db_evolucao):
             db_evolucao, db_jogadores
         )
 
-    # Usa ThreadPoolExecutor para rodar em paralelo
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        executor.map(process_user, [row for _, row in users.iterrows()])
+    # # Usa ThreadPoolExecutor para rodar em paralelo
+    # with concurrent.futures.ThreadPoolExecutor() as executor:
+    #     executor.map(process_user, [row for _, row in users.iterrows()])
+    
+    
+    for _, row in users.iterrows():
+        process_user(row)
