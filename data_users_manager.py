@@ -1,4 +1,6 @@
 import pandas as pd
+import pytz
+
 
 def get_users():
     with open('assets/database/users.csv', 'r') as file:
@@ -29,7 +31,10 @@ def convert_datas(json_datas):
     data = json_datas
 
     # Data e hora atual
-    current_time = datetime.now().strftime("%Y-%m-%d")
+    brasilia_tz = pytz.timezone('America/Sao_Paulo')
+    current_time = datetime.now(brasilia_tz)
+    return current_time.strftime("%Y-%m-%d")
+    print('time',current_time)
     # current_time = '2025-02-23'
 
     # Adicionar os dados do usuário à lista

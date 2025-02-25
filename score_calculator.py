@@ -28,7 +28,6 @@ def score_calculator( userId, xpDayNew, streakDayNew, db_evolucao, db_jogadores)
         id_register = None
 
     acumulado = xpDayNew - xp_day_old
-    print('acumulado ',acumulado, xpDayNew, xp_day_old)
     # if pontos_total != old_score:
     if pontos_total:
         db_evolucao.update_one(
@@ -78,7 +77,6 @@ def first_evolution_day(db_evolucao, userId):
     
     
 def calcular_pontos(xpDayOld, XpDayNew, streakOld, streakNew):
-    print('Calculando pontos', xpDayOld, XpDayNew, streakOld, streakNew)
     xpDayOld = int(xpDayOld)
     XpDayNew  = int(XpDayNew)
     streakOld = int(streakOld)
@@ -89,7 +87,6 @@ def calcular_pontos(xpDayOld, XpDayNew, streakOld, streakNew):
     else:
         pontos_xp = 0  # Se a diferença for <= 0, pontosXp = 0
     # Calcular pontosOfensiva
-    print('diferenca_xp')
     diferenca_streak = streakNew - streakOld
     if diferenca_streak > 0:
         # pontos_streak = diferenca_streak + streakOld 
@@ -97,18 +94,15 @@ def calcular_pontos(xpDayOld, XpDayNew, streakOld, streakNew):
         pontos_streak = 5
     else:
         pontos_streak = 0
-    print('pontos_streak')
     
     pontos_total = pontos_xp + pontos_streak
 
-    print('Retornando pontos', pontos_xp, pontos_streak, pontos_total)
     return pontos_xp, pontos_streak, pontos_total
 
 def calcular_primeiro_registro(userId, xpDayNew, streakDayNew, xpOld, streakOld, db_jogadores):
     result = db_jogadores.find_one({"userId": int(userId)}, {"totalXp": 1, "streakStart": 1, "_id": 0})
     if result:
         xpOld = result.get("totalXp", None)
-        print(xpOld)
         streakOld = result.get("streakStart", None)
         return calcular_pontos(xpOld, xpDayNew, streakOld, streakDayNew)
     

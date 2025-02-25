@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI, BackgroundTasks, HTTPException
 from pymongo import MongoClient
 import asyncio
+import pytz
 
 
 
@@ -41,7 +42,9 @@ from datetime import datetime
 
 @app.get("/evolucao")
 def get_evolucao():
-    current_time = datetime.now().strftime("%Y-%m-%d")
+    brasilia_tz = pytz.timezone('America/Sao_Paulo')
+    current_time = datetime.now(brasilia_tz).strftime("%Y-%m-%d")
+    print(current_time)
 
     jogadores = list(db_evolucao.find({"date": current_time}, {"_id": 0}))  # Buscar todos os jogadores, excluindo o ID MongoDB
     jogadores.sort(key=lambda x: x["totalScore"], reverse=True)

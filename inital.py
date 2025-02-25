@@ -30,7 +30,6 @@ async def update_datas(db_jogadores, db_evolucao):
             df_user['name'][0],
             
         )
-        print(df_user['name'][0])
         score_calculator(
             row['userId'], 
             df_user['totalXp'][0], 
