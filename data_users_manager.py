@@ -32,8 +32,7 @@ def convert_datas(json_datas):
 
     # Data e hora atual
     brasilia_tz = pytz.timezone('America/Sao_Paulo')
-    current_time = datetime.now(brasilia_tz)
-    return current_time.strftime("%Y-%m-%d")
+    current_time = datetime.now(brasilia_tz).strftime("%Y-%m-%d")
     print('time',current_time)
     # current_time = '2025-02-23'
 

@@ -1,3 +1,4 @@
+from datetime import datetime
 from fastapi import FastAPI
 from pymongo import MongoClient
 import os
@@ -32,13 +33,6 @@ app.add_middleware(
     allow_methods=["*"],  # Permite todos os métodos HTTP (GET, POST, etc.)
     allow_headers=["*"],  # Permite todos os headers
 )
-# # Rota para obter a pontuação dos jogadores
-# @app.get("/jogadores")
-# def get_jogadores():
-#     update_datas()
-#     jogadores = list(db_jogadores.find({}, {"_id": 0}))  # Buscar todos os jogadores, excluindo o ID MongoDB
-#     return {"jogadores": jogadores}
-from datetime import datetime
 
 @app.get("/evolucao")
 def get_evolucao():
@@ -55,19 +49,6 @@ def get_evolucao():
         jogador["posicao"] = medals[i-1] if i <= 3 else f"{i}º"
     return {"evolucao": jogadores}
 
-# # Rota para atualizar os pontos (exemplo de lógica de atualização)
-# @app.post("/atualizar_pontos")
-# def atualizar_pontos():
-#     db_jogadores.insert_one({"username": "lucas.tamura", "name": "Lucas Tamura", "startXp": 1000, "startStreak": 3, "totalScore": 0})
-#     return {"message": "Pontos atualizados com sucesso!"}
-
-
-
-
-# async def update_datas():
-#     # Simulando demora na atualização (remova essa linha no código real)
-#     await asyncio.sleep(15)
-#     # Aqui vai sua lógica de atualização real
 
 @app.get("/jogadores")
 async def get_jogadores():
