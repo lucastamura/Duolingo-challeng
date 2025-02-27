@@ -20,7 +20,6 @@ async def update_datas(db_jogadores, db_evolucao):
         player = sing_up_user(row, db_jogadores)
         json_datas = get_user_datas(row['userId'])  # Coleta os dados da API simultaneamente
         df_user = convert_datas(json_datas)
-        print(df_user)
 
         check_evoluction_day(
             df_user['current_time'][0], 

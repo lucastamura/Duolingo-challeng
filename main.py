@@ -38,7 +38,6 @@ app.add_middleware(
 def get_evolucao():
     brasilia_tz = pytz.timezone('America/Sao_Paulo')
     current_time = datetime.now(brasilia_tz).strftime("%Y-%m-%d")
-    print(current_time)
 
     jogadores = list(db_evolucao.find({"date": current_time}, {"_id": 0}))  # Buscar todos os jogadores, excluindo o ID MongoDB
     jogadores.sort(key=lambda x: x["totalScore"], reverse=True)
