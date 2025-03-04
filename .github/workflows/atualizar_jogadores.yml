@@ -2,7 +2,7 @@ name: Atualizar Jogadores
 
 on:
   schedule:
-    - cron: "*/5 * * * *"  # Executa a cada 10 minutos
+    - cron: "*/2 * * * *"  # Executa a cada 10 minutos
 
   workflow_dispatch:  # Permite rodar manualmente
 
