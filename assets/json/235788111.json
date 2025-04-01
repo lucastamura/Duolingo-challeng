@@ -1,1 +1,70 @@
-{"totalXp":12596,"id":235788111,"courses":[{"preload":false,"placementTestAvailable":false,"authorId":"duolingo","title":"English","learningLanguage":"en","xp":12514,"healthEnabled":true,"fromLanguage":"pt","id":"DUOLINGO_EN_PT","crowns":0},{"preload":false,"placementTestAvailable":false,"authorId":"duolingo","title":"German","learningLanguage":"de","xp":15,"healthEnabled":true,"fromLanguage":"pt","id":"DUOLINGO_DE_PT","crowns":0},{"preload":false,"placementTestAvailable":false,"authorId":"duolingo","title":"Spanish","learningLanguage":"es","xp":67,"healthEnabled":true,"fromLanguage":"pt","id":"DUOLINGO_ES_PT","crowns":0}],"streak":60,"creationDate":1480852659,"name":"Marcio","globalAmbassadorStatus":{},"roles":["users"],"hasPlus":false,"fromLanguage":"pt","privacySettings":[],"streakData":{"currentStreak":{"endDate":"2025-02-26","length":60,"lastExtendedDate":"2025-02-26","startDate":"2024-12-29"},"previousStreak":{"endDate":"2024-08-06","length":1,"lastExtendedDate":"2024-08-04","startDate":"2024-08-04"}},"picture":"//simg-ssl.duolingo.com/ssr-avatars/235788111/SSR-WOVnBgJ3YW","learningLanguage":"en","subscriberLevel":"FREE","username":"Marcio78837"}
+{
+    "totalXp": 12596,
+    "id": 235788111,
+    "courses": [
+        {
+            "preload": false,
+            "placementTestAvailable": false,
+            "authorId": "duolingo",
+            "title": "English",
+            "learningLanguage": "en",
+            "xp": 12514,
+            "healthEnabled": true,
+            "fromLanguage": "pt",
+            "id": "DUOLINGO_EN_PT",
+            "crowns": 0
+        },
+        {
+            "preload": false,
+            "placementTestAvailable": false,
+            "authorId": "duolingo",
+            "title": "German",
+            "learningLanguage": "de",
+            "xp": 15,
+            "healthEnabled": true,
+            "fromLanguage": "pt",
+            "id": "DUOLINGO_DE_PT",
+            "crowns": 0
+        },
+        {
+            "preload": false,
+            "placementTestAvailable": false,
+            "authorId": "duolingo",
+            "title": "Spanish",
+            "learningLanguage": "es",
+            "xp": 67,
+            "healthEnabled": true,
+            "fromLanguage": "pt",
+            "id": "DUOLINGO_ES_PT",
+            "crowns": 0
+        }
+    ],
+    "streak": 60,
+    "creationDate": 1480852659,
+    "name": "Marcio",
+    "globalAmbassadorStatus": {},
+    "roles": [
+        "users"
+    ],
+    "hasPlus": false,
+    "fromLanguage": "pt",
+    "privacySettings": [],
+    "streakData": {
+        "currentStreak": {
+            "endDate": "2025-02-26",
+            "length": 60,
+            "lastExtendedDate": "2025-02-26",
+            "startDate": "2024-12-29"
+        },
+        "previousStreak": {
+            "endDate": "2024-08-06",
+            "length": 1,
+            "lastExtendedDate": "2024-08-04",
+            "startDate": "2024-08-04"
+        }
+    },
+    "picture": "//simg-ssl.duolingo.com/ssr-avatars/235788111/SSR-WOVnBgJ3YW",
+    "learningLanguage": "en",
+    "subscriberLevel": "FREE",
+    "username": "Marcio78837"
+}
